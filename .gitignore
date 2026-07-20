@@ -1,0 +1,13 @@
+build/
+lib/
+bin/
+*.o
+*.so
+*.a
+*.dll
+*.exe
+*.log
+*.tmp
+.DS_Store
+.vscode/
+.idea/
