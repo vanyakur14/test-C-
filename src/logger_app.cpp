@@ -83,13 +83,12 @@ void LoggerApp::workerThread() {
 bool LoggerApp::processInput() {
     std::string input;
     std::getline(std::cin, input);
-    // Удаление \r (для Windows) и пробелов
+
     if (!input.empty() && input.back() == '\r') input.pop_back();
     input.erase(0, input.find_first_not_of(" \t\n\r"));
     input.erase(input.find_last_not_of(" \t\n\r") + 1);
     if (input.empty()) return true;
 
-    // Обработка специальных команд
     if (input == "exit" || input == "quit" || input == "q") {
         std::cout << "Exiting..." << std::endl;
         return false;
@@ -139,7 +138,6 @@ bool LoggerApp::parseCommand(const std::string& input, LogCommand& command) {
         if (start >= input.length()) return false;
         command.message = input.substr(start);
     } else {
-        // Без разделителя – используем уровень по умолчанию
         command.message = input;
         command.level = defaultLevel_;
     }
@@ -151,7 +149,6 @@ bool LoggerApp::stringToLevel(const std::string& levelStr, Logger::LogLevel& lev
     std::transform(upper.begin(), upper.end(), upper.begin(), [](unsigned char c) {
         return std::toupper(c);
     });
-    // Удаляем возможные символы \r в конце
     if (!upper.empty() && upper.back() == '\r') upper.pop_back();
     if (upper == "DEBUG" || upper == "D") { level = Logger::LogLevel::DEBUG; return true; }
     if (upper == "INFO" || upper == "I")  { level = Logger::LogLevel::INFO;  return true; }

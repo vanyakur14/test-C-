@@ -20,7 +20,7 @@ void workerThread(int id, int iterations) {
         switch (level) {
             case LogLevel::DEBUG: Logger::debug(message); break;
             case LogLevel::INFO:  Logger::info(message);  break;
-            case LogLevel::ERR:   Logger::error(message); break;   // ERROR -> ERR
+            case LogLevel::ERR:   Logger::error(message); break;
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(sleepDis(gen)));
     }

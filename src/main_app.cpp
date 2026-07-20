@@ -1,8 +1,8 @@
 #include "logger_app.h"
 #include <iostream>
 #include <getopt.h>
-#include <algorithm>   // <-- добавлено для std::transform
-#include <cctype>      // для ::toupper
+#include <algorithm>
+#include <cctype>
 
 void printUsage(const char* prog) {
     std::cout << "Usage: " << prog << " [OPTIONS]" << std::endl;
@@ -16,7 +16,7 @@ bool parseLogLevel(const std::string& str, Logger::LogLevel& level) {
     std::transform(u.begin(), u.end(), u.begin(), ::toupper);
     if (u == "DEBUG") { level = Logger::LogLevel::DEBUG; return true; }
     if (u == "INFO")  { level = Logger::LogLevel::INFO;  return true; }
-    if (u == "ERROR") { level = Logger::LogLevel::ERR;   return true; }   // исправлено: ERR вместо ERROR
+    if (u == "ERROR") { level = Logger::LogLevel::ERR;   return true; }
     return false;
 }
 

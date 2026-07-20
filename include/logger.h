@@ -36,12 +36,10 @@ public:
     
     static std::string levelToString(LogLevel level);
     
-    // Деструктор теперь публичный
     ~LoggerImpl() = default;
 
 private:
     LoggerImpl() = default;
-    // Копирование запрещено
     LoggerImpl(const LoggerImpl&) = delete;
     LoggerImpl& operator=(const LoggerImpl&) = delete;
     
@@ -67,7 +65,6 @@ private:
     mutable std::mutex levelMutex_;
 };
 
-// Свободные функции-обёртки
 inline bool init(const std::string& filename, LogLevel defaultLevel = LogLevel::INFO) {
     return LoggerImpl::init(filename, defaultLevel);
 }
