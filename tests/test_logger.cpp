@@ -19,9 +19,9 @@ void testInit() {
 void testLevels() {
     std::cout << "Testing levels..." << std::endl;
     Logger::init("test.log", LogLevel::INFO);
-    Logger::debug("debug");   // not logged
+    Logger::debug("debug");
     Logger::info("info");
-    Logger::error("error");   // теперь LogLevel::ERR
+    Logger::error("error");
     Logger::setDefaultLevel(LogLevel::DEBUG);
     assert(Logger::getDefaultLevel() == LogLevel::DEBUG);
     Logger::debug("debug after change");
