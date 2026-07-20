@@ -31,7 +31,7 @@ make distclean    # полная очистка (включая собранны
 
 
 Пример использования в коде C++:
-
+```
 #include "logger.h"
 
 int main() {
@@ -43,32 +43,32 @@ int main() {
     Logger::debug("Теперь DEBUG сообщения записываются");
     Logger::shutdown();
     return 0;
-}
+}```
 
 
 Формат записи в журнал:
-
+```
 2026-07-20 20:41:45.067 [INFO] Application started
 2026-07-20 20:41:45.331 [INFO] User logged in
 2026-07-20 20:41:45.346 [ERROR] Database connection lost
-
+```
 
 Запуск интерактивного приложения:
-
+```
 ./bin/logger_app -f mylog.log -l DEBUG
-
+```
 
 Параметры:
-
+```
 -f, --file FILE – имя файла журнала (по умолчанию app.log)
 
 -l, --level LEVEL – уровень по умолчанию (DEBUG, INFO, ERROR, по умолчанию INFO)
 
 -h, --help – справка
-
+```
 
 Интерактивные команды:
-
+```
 message – запись с уровнем по умолчанию
 
 DEBUG:message или DEBUG message – запись с уровнем DEBUG
@@ -84,25 +84,25 @@ status, s – вывод текущего состояния
 clear – очистка экрана
 
 exit, q – выход из приложения
-
+```
 
 Пример сеанса:
-
+```
 > Application started
 > INFO:User logged in
 > ERROR:Database connection failed
 > DEBUG:Processing request #42
 > status
 > exit
-
+```
 
 Тестирование:
-
+```
 make test
-
+```
 
 Запускаются модульные тесты, проверяющие инициализацию, фильтрацию по уровню и многопоточную запись. Ожидаемый вывод:
-
+```
 === Running tests ===
 Testing init...
   OK
@@ -111,10 +111,10 @@ Testing levels...
 Testing multithread...
   OK
 All tests passed!
-
+```
 
 Структура проекта:
-
+```
 .
 ├── include/
 │   └── logger.h              # Публичный заголовок библиотеки
@@ -129,3 +129,4 @@ All tests passed!
 ├── Makefile                  # Система сборки
 ├── README.md                 # Данный файл
 └── .gitignore                # Исключённые файлы
+```
