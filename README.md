@@ -43,8 +43,8 @@ int main() {
     Logger::debug("Теперь DEBUG сообщения записываются");
     Logger::shutdown();
     return 0;
-}```
-
+}
+```
 
 Формат записи в журнал:
 ```
